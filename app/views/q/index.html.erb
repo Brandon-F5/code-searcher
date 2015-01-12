@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h1>Github Inspect</h1>
+</div>
+<div id="search_bar_holder" class="row">
+	<div class="col-xs-12"> 
+		<%= form_tag("/query", :id => "search-form", :class => "form-inline", method: "post", :remote => true) do %>
+		  <%= text_field_tag(:q, nil, {:class => "query-input", :placeholder => "search"}) %>
+		  <%= submit_tag("Search", :class => "btn btn-default query-button", :id => "search_button") %>
+		<% end %>
+	</div>
+	
+</div>
+
+<div id="results_holder" class="row">
+	Results should end up here
+</div>
+
+<div id="more_results_trigger" class="row">
+	
+</div>
+
+<script>
+$( document ).ready(function() {
+  $("#search-form").bind("ajax:success", function(event, data, status, xhr){
+    $("#results_holder").html(data);
+ });
+});
+
+</script>
