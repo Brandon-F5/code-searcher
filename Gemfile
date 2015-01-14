@@ -42,6 +42,7 @@ gem 'shoulda-matchers'
 # Github
 gem 'github_api'
 
+# Needed to get bootstrap to work on Heroku
 gem 'bootstrap-sass', '~> 3.3.1'
 
 
