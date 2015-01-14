@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
  helper_method :current_user, :authenticate_user!
   
  def current_user
-   puts "Found session[:u_id] as #{session[:u_id]}"
    @current_user ||= User.find_by_id(session[:u_id])
  end
 

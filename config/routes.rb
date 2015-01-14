@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/signout" => "sessions#destroy", :as => :signout
   
   post "/query" => "q#query"
+  get  "/query" => "q#query"
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

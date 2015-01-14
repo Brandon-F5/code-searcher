@@ -12,8 +12,8 @@
 	
 </div>
 <div id="loading_holder" class="row">
-	<img src="loading<%= @loading_num %>.gif">
-	<p>Hacking...</p>
+	
+	<h3>Hacking...</h3>
 </div>
 <div id="results_holder" class="row">
 	
@@ -29,6 +29,9 @@
 <script>
 $( document ).ready(function() {
  $("#loading_holder").hide();
+ 
+ $("#loading_holder").prepend('<img src="loading' + Math.floor(Math.random() * 7 + 1) + '.gif" />')
+
  $("#search_button").on('click', function (e){
 	$("#results_holder").hide();
 	$("#loading_holder").show();
@@ -43,6 +46,7 @@ $( document ).ready(function() {
  $(".item_clone_url_text").focus(function() {
 	this.select();
  });
+
 
 });
 

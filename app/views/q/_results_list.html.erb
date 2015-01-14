@@ -1,7 +1,18 @@
 <div class="col-xs-12">
-	
-		<% items.each do |i| %>
-			<%= render :partial => "item", :locals => {item: i} %>
-		<% end %>
-	
+	<% items.each do |i| %>
+		<%= render :partial => "item", :locals => {item: i, :query => query} %>
+	<% end %>
+
+	<% if more_results %>
+		<%= link_to "More Results", action: "query", q: query %>
+	<% end %>
 </div>
+
+<script>
+	$(".lang_link").bind("ajax:success", function(event, data, status, xhr){
+		$("#loading_holder").hide();
+		$("#results_holder").html(data);
+		$("#results_holder").show();
+ 	});
+
+</script>

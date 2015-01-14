@@ -13,7 +13,8 @@ class SessionsController < ApplicationController
      notice = "Unable to authenticate with Github. Please try again." 
      status = :unauthorized
     end
-    redirect_to '/', :notice => notice, :status => status
+    #redirect_to '/', :notice => notice, :status => status
+    redirect_to root_url
   end
 
   def destroy

@@ -25,13 +25,15 @@
 	margin-top:12px;
 }
 
+.item_actions {
+	padding-top:12px;
+}
 
 .item_holder {
 	margin-top:4px;
 	padding-bottom:8px;
 	margin-bottom:20px;
 	font-size:14px;
-	border-top:1px solid #eee;
 }
 
 .item_name {

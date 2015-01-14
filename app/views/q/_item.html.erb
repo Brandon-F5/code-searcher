@@ -1,18 +1,13 @@
 <div class="item_holder col-xs-11">
 
 	<div class="item_name col-xs-8"><%= link_to item.full_name, item.html_url %></div>
-	<div class="item_language col-xs-4"><%= item.language %></div>
+	<div class="item_language col-xs-4"><font size="2" color="gray">lang: 
+	<%= link_to item.language, {:action => "query", :q => query, :lang => item.language}, {:remote => true, :class => "lang_link"} %></div>
 	<div class="item_description col-xs-12"><%= item.description %></div>
 	<div class="item_actions col-xs-8">
-		<button type="button" class="btn btn-default btn-sm">
-		  <%= image_tag "star.png", :width => "20" %> Star <%= item.stargazers_count %>
-		</button>
-		<button type="button" class="btn btn-default btn-sm">
-		  <%= image_tag "star.png", :width => "20" %> Watch <%= item.watchers_count %>
-		</button>
-		<button type="button" class="btn btn-default btn-sm">
-		  <%= image_tag "star.png", :width => "20" %> Fork <%= item.forks_count %>
-		</button>
+		<%= image_tag "star.png", :width => "20" %> Stars <%= item.stargazers_count %> |
+		<%= image_tag "eye.png", :width => "20" %> Watchers <%= item.watchers_count %> |
+		<%= image_tag "fork.png", :width => "20" %> Forks <%= item.forks_count %>
 		
 	</div>
 	<div class="item_clone_holder col-xs-4">
