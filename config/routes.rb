@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'q#index'
   
+  get 'q' => 'q#index'
   get '/signin' => 'sessions#new', :as => :signin
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', :to => 'sessions#failure'  

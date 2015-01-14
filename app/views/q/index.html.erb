@@ -1,5 +1,6 @@
 <div class="page-header">
   <h1>Github Inspect</h1>
+  <p><%= @current_user.nickname %></p>
 </div>
 <div id="search_bar_holder" class="row">
 	<div class="col-xs-12"> 
@@ -10,20 +11,40 @@
 	</div>
 	
 </div>
-
+<div id="loading_holder" class="row">
+	<img src="loading<%= @loading_num %>.gif">
+	<p>Hacking...</p>
+</div>
 <div id="results_holder" class="row">
-	Results should end up here
+	
 </div>
 
 <div id="more_results_trigger" class="row">
 	
 </div>
 
+["id", "name", "full_name", "owner", "private", "html_url", "description", "fork", "url", "forks_url", "keys_url", "collaborators_url", "teams_url", "hooks_url", "issue_events_url", "events_url", "assignees_url", "branches_url", "tags_url", "blobs_url", "git_tags_url", "git_refs_url", "trees_url", "statuses_url", "languages_url", "stargazers_url", "contributors_url", "subscribers_url", "subscription_url", "commits_url", "git_commits_url", "comments_url", "issue_comment_url", "contents_url", "compare_url", "merges_url", "archive_url", "downloads_url", "issues_url", "pulls_url", "milestones_url", "notifications_url", "labels_url", "releases_url", "created_at", "updated_at", "pushed_at", "git_url", "ssh_url", "clone_url", "svn_url", "homepage", "size", "stargazers_count", "watchers_count", "language", "has_issues", "has_downloads", "has_wiki", "has_pages", "forks_count", "mirror_url", "open_issues_count", "forks", "open_issues", "watchers", "default_branch", "score"] 
+
+
 <script>
 $( document ).ready(function() {
-  $("#search-form").bind("ajax:success", function(event, data, status, xhr){
-    $("#results_holder").html(data);
+ $("#loading_holder").hide();
+ $("#search_button").on('click', function (e){
+	$("#results_holder").hide();
+	$("#loading_holder").show();
  });
+ 
+ $("#search-form").bind("ajax:success", function(event, data, status, xhr){
+    $("#loading_holder").hide();
+	$("#results_holder").html(data);
+	$("#results_holder").show();
+ });
+ 
+ $(".item_clone_url_text").focus(function() {
+	this.select();
+ });
+
 });
 
 </script>
+

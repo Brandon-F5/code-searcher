@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     @user = find_or_create_user_from_auth_hash(auth_hash)
     if(@user)
-      session[:u_id] = @user
+      session[:u_id] = @user.id
       notice = "Account Created!"
       status = :ok
     else
@@ -14,6 +14,11 @@ class SessionsController < ApplicationController
      status = :unauthorized
     end
     redirect_to '/', :notice => notice, :status => status
+  end
+
+  def destroy
+    session[:u_id] = nil
+    redirect_to root_url, :notice => "You have been signed out!"
   end
 
   protected
@@ -27,7 +32,7 @@ class SessionsController < ApplicationController
   def find_or_create_user_from_auth_hash(a_hash)
     u = User.find_by_gh_uid(a_hash['uid'])
     if(u == nil)
-      u = User.new(nickname: a_hash['info']['nickname'], gh_uid: a_hash['uid'], image_url: a_hash['info']['image'])
+      u = User.new(nickname: a_hash['info']['nickname'], gh_uid: a_hash['uid'], image_url: a_hash['info']['image'], auth_token: a_hash['credentials']['token'])
       u.name = u.nickname unless a_hash['info']['name'] != nil
       if(u.save == false)
         u = nil

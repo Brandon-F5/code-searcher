@@ -1,0 +1,29 @@
+<div class="item_holder col-xs-11">
+
+	<div class="item_name col-xs-8"><%= link_to item.full_name, item.html_url %></div>
+	<div class="item_language col-xs-4"><%= item.language %></div>
+	<div class="item_description col-xs-12"><%= item.description %></div>
+	<div class="item_actions col-xs-8">
+		<button type="button" class="btn btn-default btn-sm">
+		  <%= image_tag "star.png", :width => "20" %> Star <%= item.stargazers_count %>
+		</button>
+		<button type="button" class="btn btn-default btn-sm">
+		  <%= image_tag "star.png", :width => "20" %> Watch <%= item.watchers_count %>
+		</button>
+		<button type="button" class="btn btn-default btn-sm">
+		  <%= image_tag "star.png", :width => "20" %> Fork <%= item.forks_count %>
+		</button>
+		
+	</div>
+	<div class="item_clone_holder col-xs-4">
+		 <div class="item_clone_title"><b>HTTPS</b> clone URL</div> 
+		<div class="item_clone_url">
+			<input type="text" class="item_clone_url_text" value="<%= item.clone_url %>"/>
+		</div>
+		
+	</div>
+	
+
+</div>
+
+
