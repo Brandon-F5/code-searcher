@@ -27,13 +27,15 @@
 
 .item_actions {
 	padding-top:12px;
+	float:left;
 }
 
 .item_holder {
-	margin-top:4px;
-	padding-bottom:8px;
-	margin-bottom:20px;
+	margin-top:16px;
+	padding-bottom:6px;
+	margin-bottom:12px;
 	font-size:14px;
+	border: 1px solid #eef;
 }
 
 .item_name {
@@ -47,7 +49,8 @@
 
 .item_clone_holder {
 	font-size:15px;
-	float:left;
+	float:right;
+	
 }
 
 .item_clone_title {
@@ -68,6 +71,10 @@
 	border-top:1px solid #7FDBFF;
 	min-height:40px;
 	margin-bottom:16px;
+}
+
+.more_results_button {
+	margin-bottom:12px;
 }
 
 .query-input {

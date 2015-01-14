@@ -4,11 +4,27 @@
 	<% end %>
 
 	<% if more_results %>
-		<%= link_to "More Results", action: "query", q: query %>
+		<%= button_to "More Results", {:action => "query", :q => query, page: page_num}, {:remote => true, :class => "more_results_button", :id => "more_results"} %>
 	<% end %>
 </div>
 
 <script>
+	$(".more_results_button").on("click", function(){
+		$("#results_holder").hide();
+		$("#loading_holder").show();
+	});
+
+	$(".button_to").bind("ajax:success", function(event, data, status, xhr){
+	    $("#loading_holder").hide();
+		$("#results_holder").html(data);
+		$("#results_holder").show();
+	 });
+	
+	$(".lang_link").on("click", function(){
+		$("#results_holder").hide();
+		$("#loading_holder").show();
+	});
+	
 	$(".lang_link").bind("ajax:success", function(event, data, status, xhr){
 		$("#loading_holder").hide();
 		$("#results_holder").html(data);
