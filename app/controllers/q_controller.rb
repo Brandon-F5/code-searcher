@@ -19,7 +19,7 @@ class QController < ApplicationController
         order = params[:order]
       end
       
-      #begin
+      begin
         @github = Github.new client_id: ENV['GITHUB_KEY'], client_secret: ENV['GITHUB_SECRET'], user: @current_user.nickname, oauth_token: @current_user.auth_token
         term = params[:q]
         term = "#{term}+language:#{params[:lang]}" if params[:lang]
@@ -29,9 +29,9 @@ class QController < ApplicationController
         if(more_results)
           page_num = page_num + 1
         end
-      #rescue
+      rescue
         puts "Hit an error in the github api call"
-      #end
+      end
       
       if(items)
         render :partial => "results_list", :locals => {items: items, query: term, more_results: more_results, page_num: page_num}  
