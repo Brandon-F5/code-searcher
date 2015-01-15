@@ -75,6 +75,20 @@ Rails.application.configure do
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false
 
+#===
+
+# Debug mode disables concatenation and preprocessing of assets.
+# This option may cause significant delays in view rendering with a large
+# number of complex assets.
+config.assets.debug = true
+
+# Adds additional error checking when serving assets at runtime.
+# Checks for improperly declared sprockets dependencies.
+# Raises helpful error messages.
+config.assets.raise_runtime_errors = true
+
+#==
+
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
