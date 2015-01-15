@@ -3,6 +3,7 @@
   <p>
   	<%= image_tag @current_user.image_url, :width => 24 %>
 	<%= link_to @current_user.display_name, "http://github.com/#{@current_user.nickname}" %>
+	| <%= link_to "Sign out", :signout %>
   </p>
 </div>
 <div id="search_bar_holder" class="row">
