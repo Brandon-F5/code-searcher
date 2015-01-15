@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
       if(u.save == false)
         u = nil
       end
+    elsif(u.auth_token != a_hash['credentials']['token'])
+      u.auth_token = a_hash['credentials']['token']
+      u.save
     end
     u    
   end

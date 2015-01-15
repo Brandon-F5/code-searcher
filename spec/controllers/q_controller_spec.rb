@@ -25,8 +25,7 @@ RSpec.describe QController, :type => :controller do
         
       it "renders the :results_error partial" do
         expect(response).to render_template(:partial => "_result_error")
-      end
-      
+      end  
     end
   
   end
@@ -43,7 +42,6 @@ RSpec.describe QController, :type => :controller do
         expect(response).to render_template(:partial => "_result_error")
       end
     end
-  
   end
   
 end

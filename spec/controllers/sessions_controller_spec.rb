@@ -11,6 +11,7 @@ RSpec.describe SessionsController, :type => :controller do
     
   describe "GET #destroy" do
     before do
+      session[:u_id] = 1
       get :destroy
     end
     
@@ -21,8 +22,7 @@ RSpec.describe SessionsController, :type => :controller do
     it "redirects to the home page" do
       expect(response).to redirect_to(:controller => :q, :action => :index)
     end
-  end
-  
+  end  
 end
 
 
